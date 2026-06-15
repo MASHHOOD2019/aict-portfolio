@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Mashhood Ali — Software Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#000}
+body{
+  font-family:'Inter',sans-serif;
+  background:#050507;
+  color:#fff;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+::selection{background:#3b82f6;color:#fff}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0a0a0c}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#3b82f6,#2563eb);border-radius:3px}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ===== STAR FIELD ===== */
+.stars,.stars2,.stars3{position:fixed;inset:0;z-index:0;pointer-events:none}
+.stars{
+  background-image:
+    radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.8),transparent),
+    radial-gradient(1px 1px at 25% 55%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 40% 10%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1px 1px at 55% 70%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 70% 35%,rgba(255,255,255,.9),transparent),
+    radial-gradient(1px 1px at 85% 80%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1px 1px at 15% 90%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1px 1px at 60% 45%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 90% 15%,rgba(255,255,255,.8),transparent),
+    radial-gradient(1px 1px at 35% 65%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1.5px 1.5px at 5% 50%,rgba(192,38,211,.6),transparent),
+    radial-gradient(1.5px 1.5px at 50% 5%,rgba(124,58,237,.6),transparent),
+    radial-gradient(1.5px 1.5px at 95% 60%,rgba(192,38,211,.5),transparent),
+    radial-gradient(1px 1px at 20% 30%,rgba(255,255,255,.3),transparent),
+    radial-gradient(1px 1px at 75% 15%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1px 1px at 45% 85%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 80% 50%,rgba(255,255,255,.3),transparent),
+    radial-gradient(1px 1px at 30% 75%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 65% 25%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1px 1px at 12% 62%,rgba(255,255,255,.4),transparent);
+  animation:twinkle1 4s ease-in-out infinite alternate;
+}
+.stars2{
+  background-image:
+    radial-gradient(1px 1px at 8% 42%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 22% 78%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1px 1px at 38% 32%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1px 1px at 52% 88%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 68% 12%,rgba(255,255,255,.8),transparent),
+    radial-gradient(1px 1px at 82% 58%,rgba(255,255,255,.3),transparent),
+    radial-gradient(1px 1px at 18% 8%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 48% 42%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 88% 38%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1.5px 1.5px at 33% 53%,rgba(192,38,211,.4),transparent),
+    radial-gradient(1.5px 1.5px at 72% 72%,rgba(124,58,237,.4),transparent),
+    radial-gradient(1px 1px at 58% 58%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1px 1px at 3% 95%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 97% 8%,rgba(255,255,255,.6),transparent);
+  animation:twinkle2 5s ease-in-out infinite alternate;
+}
+.stars3{
+  background-image:
+    radial-gradient(1px 1px at 15% 45%,rgba(255,255,255,.3),transparent),
+    radial-gradient(1px 1px at 42% 22%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 62% 78%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1px 1px at 78% 45%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1px 1px at 28% 18%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1px 1px at 88% 88%,rgba(255,255,255,.3),transparent),
+    radial-gradient(1px 1px at 5% 75%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1px 1px at 55% 35%,rgba(255,255,255,.6),transparent);
+  animation:twinkle3 6s ease-in-out infinite alternate;
+}
+@keyframes twinkle1{0%{opacity:.6}100%{opacity:1}}
+@keyframes twinkle2{0%{opacity:1}100%{opacity:.5}}
+@keyframes twinkle3{0%{opacity:.4}100%{opacity:.8}}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 40px;
+  background:rgba(5,5,7,.7);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:12px;
+}
+.nav-logo svg{width:36px;height:36px;animation:spin-slow 12s linear infinite}
+@keyframes spin-slow{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.nav-brand{
+  font-family:'Inter',sans-serif;font-weight:900;font-size:1rem;
+  letter-spacing:.25em;text-transform:uppercase;color:#fff;
+}
+.nav-links{display:flex;gap:32px}
+.nav-links a{
+  font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);transition:color .3s;position:relative;
+}
+.nav-links a:hover,.nav-links a.active{color:#3b82f6}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;
+  background:#3b82f6;transition:width .3s;
+}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  padding:8px 20px;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,.15);color:#fff;
+  transition:all .3s;
+}
+.nav-cta:hover{border-color:#3b82f6;color:#3b82f6;box-shadow:0 0 20px rgba(192,38,211,.3)}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;z-index:5;padding:120px 40px 80px;
+}
+.hero-grid{
+  width:100%;max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:40px;
+  align-items:center;
+}
+.hero-left{position:relative;display:flex;flex-direction:column;align-items:center;gap:20px}
+.hero-center{text-align:center;position:relative}
+.hero-right{position:relative;display:flex;flex-direction:column;align-items:center}
+
+/* Alien Panel */
+.alien-panel{
+  width:280px;height:340px;position:relative;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(10,10,14,.8);
+  overflow:hidden;
+  clip-path:polygon(0 0,100% 5%,95% 100%,5% 95%);
+  animation:alien-peek 3s ease-in-out infinite;
+}
+@keyframes alien-peek{
+  0%,100%{transform:scale(1) rotate(0deg)}
+  25%{transform:scale(1.02) rotate(-1deg)}
+  75%{transform:scale(1.02) rotate(1deg)}
+}
+.alien-panel svg{width:100%;height:100%}
+.alien-label{
+  position:absolute;bottom:12px;left:12px;
+  font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+}
+
+/* Main Title */
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;
+  border:1px solid rgba(192,38,211,.3);color:#3b82f6;
+  margin-bottom:24px;
+}
+.hero-tag .dot{
+  width:6px;height:6px;background:#3b82f6;border-radius:50%;
+  animation:pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+.hero-title{
+  font-family:'Inter',sans-serif;font-size:clamp(2.5rem,5.5vw,5rem);
+  font-weight:900;line-height:.95;letter-spacing:-.02em;
+  text-transform:uppercase;margin-bottom:24px;
+  color:#fff;
+  text-shadow:
+    3px 3px 0 #000,
+    6px 6px 0 rgba(0,0,0,.8),
+    0 0 0 #3b82f6;
+  animation:pulse-shadow 4s ease-in-out infinite;
+}
+@keyframes pulse-shadow{
+  0%,45%{
+    text-shadow:3px 3px 0 #000,6px 6px 0 rgba(0,0,0,.8),0 0 0 transparent;
+  }
+  50%,95%{
+    text-shadow:3px 3px 0 #000,6px 6px 0 rgba(0,0,0,.8),0 0 40px rgba(192,38,211,.5),0 0 80px rgba(124,58,237,.3);
+  }
+  100%{
+    text-shadow:3px 3px 0 #000,6px 6px 0 rgba(0,0,0,.8),0 0 0 transparent;
+  }
+}
+.hero-title .line{display:block}
+.hero-title .accent{
+  background:linear-gradient(90deg,#3b82f6,#2563eb,#3b82f6);
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:gradient-shift 3s ease-in-out infinite;
+}
+@keyframes gradient-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+.hero-sub{
+  font-size:.85rem;color:rgba(255,255,255,.55);
+  line-height:1.8;max-width:500px;margin:0 auto 28px;
+  letter-spacing:.02em;
+}
+.hero-author{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;
+  color:rgba(255,255,255,.25);letter-spacing:.3em;text-transform:uppercase;
+}
+.hero-cta{display:flex;gap:16px;justify-content:center;margin-top:32px}
+.btn{
+  padding:14px 28px;font-size:.72rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .3s;cursor:pointer;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;
+  border:1px solid transparent;
+}
+.btn-primary:hover{box-shadow:0 0 30px rgba(192,38,211,.4);transform:translateY(-2px)}
+.btn-ghost{
+  background:transparent;border:1px solid rgba(255,255,255,.15);color:#fff;
+}
+.btn-ghost:hover{border-color:#3b82f6;color:#3b82f6}
+.arrow{transition:transform .3s}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* Astronaut Panel */
+.astronaut-panel{
+  width:300px;height:400px;position:relative;
+  animation:astronaut-float 8s cubic-bezier(.45,.05,.55,.95) infinite;
+}
+@keyframes astronaut-float{
+  0%{transform:translateY(0) rotate(-3deg)}
+  25%{transform:translateY(-15px) rotate(0deg)}
+  50%{transform:translateY(-8px) rotate(3deg)}
+  75%{transform:translateY(-20px) rotate(0deg)}
+  100%{transform:translateY(0) rotate(-3deg)}
+}
+.astronaut-panel svg{width:100%;height:100%}
+
+/* UFO */
+.ufo{
+  position:absolute;top:15%;left:-40px;
+  width:80px;height:50px;
+  animation:ufo-fly 6s ease-in-out infinite;
+}
+@keyframes ufo-fly{
+  0%{transform:translateX(0) translateY(0)}
+  15%{transform:translateX(30px) translateY(-10px)}
+  30%{transform:translateX(60px) translateY(5px)}
+  50%{transform:translateX(100px) translateY(-15px)}
+  70%{transform:translateX(60px) translateY(8px)}
+  85%{transform:translateX(20px) translateY(-5px)}
+  100%{transform:translateX(0) translateY(0)}
+}
+.ufo svg{width:100%;height:100%}
+
+/* ===== SECTIONS ===== */
+section{position:relative;z-index:5;padding:100px 40px}
+.container{max-width:1200px;margin:0 auto}
+
+.section-head{margin-bottom:60px}
+.section-num{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;
+  color:#3b82f6;letter-spacing:.3em;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.section-title{
+  font-family:'Inter',sans-serif;font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:900;text-transform:uppercase;letter-spacing:-.01em;
+  line-height:1;color:#fff;
+  text-shadow:3px 3px 0 #000,5px 5px 0 rgba(0,0,0,.6);
+}
+.section-sub{
+  color:rgba(255,255,255,.4);font-size:.85rem;
+  max-width:550px;margin-top:12px;line-height:1.7;letter-spacing:.02em;
+}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-visual{
+  position:relative;aspect-ratio:1/1.1;overflow:hidden;
+  border:1px solid rgba(255,255,255,.06);
+  background:rgba(10,10,14,.6);
+  clip-path:polygon(0 0,98% 3%,100% 97%,2% 100%);
+}
+.about-visual::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 40%,rgba(192,38,211,.08),transparent 60%);
+}
+.about-initials{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',sans-serif;font-size:clamp(6rem,15vw,12rem);
+  font-weight:900;
+  background:linear-gradient(135deg,#3b82f6 0%,#2563eb 50%,#3b82f6 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 40px rgba(192,38,211,.2));
+}
+.about-content p{color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px;font-size:.88rem}
+.about-info{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.info-item{
+  padding:16px;
+  border:1px solid rgba(255,255,255,.06);
+  background:rgba(10,10,14,.5);
+}
+.info-label{
+  font-size:.6rem;color:rgba(255,255,255,.3);text-transform:uppercase;
+  letter-spacing:.25em;margin-bottom:4px;font-family:'JetBrains Mono',monospace;
+}
+.info-value{font-weight:700;font-size:.88rem;color:#fff;letter-spacing:.02em}
+
+/* ===== SKILLS ===== */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-card{
+  padding:28px;
+  border:1px solid rgba(255,255,255,.06);
+  background:rgba(10,10,14,.5);
+  position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s;
+}
+.skill-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,#3b82f6,#2563eb);
+  transform:scaleX(0);transform-origin:left;transition:transform .3s;
+}
+.skill-card:hover{border-color:rgba(192,38,211,.3);transform:translateY(-4px)}
+.skill-card:hover::before{transform:scaleX(1)}
+.skill-icon{font-size:1.5rem;margin-bottom:14px}
+.skill-name{
+  font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;
+  margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase;color:#fff;
+}
+.skill-desc{color:rgba(255,255,255,.4);font-size:.78rem;line-height:1.6;letter-spacing:.01em}
+.skill-bar{height:2px;background:rgba(255,255,255,.06);margin-top:14px;overflow:hidden;position:relative}
+.skill-bar::after{
+  content:"";position:absolute;left:0;top:0;height:100%;width:var(--p,85%);
+  background:linear-gradient(90deg,#3b82f6,#2563eb);
+}
+
+/* ===== TIMELINE ===== */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{
+  content:"";position:absolute;left:6px;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(192,38,211,.3) 10%,rgba(124,58,237,.3) 90%,transparent);
+}
+.t-item{position:relative;margin-bottom:28px}
+.t-dot{
+  position:absolute;left:-28px;top:22px;width:12px;height:12px;
+  background:linear-gradient(135deg,#3b82f6,#2563eb);
+  box-shadow:0 0 0 3px rgba(192,38,211,.15),0 0 16px rgba(192,38,211,.4);
+}
+.t-card{
+  padding:24px;
+  border:1px solid rgba(255,255,255,.06);
+  background:rgba(10,10,14,.5);
+  transition:border-color .3s;
+}
+.t-card:hover{border-color:rgba(192,38,211,.3)}
+.t-date{
+  display:inline-block;padding:3px 10px;
+  font-size:.6rem;background:rgba(192,38,211,.1);
+  border:1px solid rgba(192,38,211,.2);color:#3b82f6;
+  margin-bottom:10px;letter-spacing:.25em;
+  font-family:'JetBrains Mono',monospace;text-transform:uppercase;
+}
+.t-title{
+  font-family:'Inter',sans-serif;font-size:1.05rem;font-weight:700;
+  margin-bottom:4px;letter-spacing:.04em;text-transform:uppercase;color:#fff;
+}
+.t-org{
+  color:#3b82f6;font-size:.78rem;font-weight:600;
+  margin-bottom:10px;letter-spacing:.12em;text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;
+}
+.t-desc{color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:12px;font-size:.82rem}
+.t-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{
+  padding:4px 10px;font-size:.62rem;
+  background:rgba(192,38,211,.08);border:1px solid rgba(192,38,211,.2);
+  color:#3b82f6;letter-spacing:.1em;text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;
+}
+
+/* ===== PROJECTS ===== */
+.projects-list{display:flex;flex-direction:column;gap:32px}
+.project-card{
+  display:grid;grid-template-columns:1fr 1.2fr;
+  border:1px solid rgba(255,255,255,.06);
+  overflow:hidden;min-height:340px;
+  background:rgba(10,10,14,.5);
+  transition:border-color .3s;
+}
+.project-card:hover{border-color:rgba(192,38,211,.3)}
+.project-card:nth-child(even){grid-template-columns:1.2fr 1fr}
+.project-card:nth-child(even) .project-visual{order:2}
+.project-visual{
+  position:relative;min-height:340px;overflow:hidden;
+  background:linear-gradient(135deg,rgba(10,10,14,1),rgba(17,17,19,1));
+  display:flex;align-items:center;justify-content:center;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.project-visual svg{width:100%;height:100%;object-fit:cover}
+.project-content{padding:40px;display:flex;flex-direction:column;justify-content:center}
+.project-num{
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;
+  color:#3b82f6;letter-spacing:.3em;margin-bottom:10px;text-transform:uppercase;
+}
+.project-title{
+  font-family:'Inter',sans-serif;font-size:1.4rem;font-weight:800;
+  margin-bottom:12px;line-height:1.1;letter-spacing:.03em;
+  text-transform:uppercase;color:#fff;
+}
+.project-desc{color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:20px;font-size:.82rem}
+.project-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.project-link{
+  display:inline-flex;align-items:center;gap:8px;font-weight:700;
+  color:#fff;letter-spacing:.12em;text-transform:uppercase;font-size:.75rem;
+  transition:color .3s;
+}
+.project-link:hover{color:#3b82f6}
+
+/* ===== CERTS ===== */
+.certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.cert-card{
+  padding:20px;display:flex;gap:16px;align-items:center;
+  border:1px solid rgba(255,255,255,.06);
+  background:rgba(10,10,14,.5);
+  transition:border-color .3s;
+}
+.cert-card:hover{border-color:rgba(192,38,211,.3)}
+.cert-icon{
+  width:50px;height:50px;flex-shrink:0;
+  background:rgba(192,38,211,.08);border:1px solid rgba(192,38,211,.15);
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+}
+.cert-body h3{
+  font-family:'Inter',sans-serif;font-size:.88rem;font-weight:700;
+  margin-bottom:4px;letter-spacing:.04em;text-transform:uppercase;color:#fff;
+}
+.cert-org{color:rgba(255,255,255,.4);font-size:.75rem;margin-bottom:4px;letter-spacing:.06em}
+.cert-date{
+  font-size:.6rem;color:#3b82f6;letter-spacing:.2em;
+  display:inline-block;padding:2px 8px;
+  background:rgba(192,38,211,.06);border:1px solid rgba(192,38,211,.15);
+  font-family:'JetBrains Mono',monospace;text-transform:uppercase;
+}
+
+/* ===== CONTACT ===== */
+.contact-wrap{padding:60px;text-align:center;position:relative;overflow:hidden;
+  border:1px solid rgba(255,255,255,.06);background:rgba(10,10,14,.5)}
+.contact-bg{
+  position:absolute;inset:-50%;
+  background:conic-gradient(from 0deg,#3b82f6,#2563eb,transparent,#3b82f6);
+  filter:blur(80px);opacity:.1;z-index:0;
+}
+.contact-inner{position:relative;z-index:1}
+.contact-title{
+  font-family:'Inter',sans-serif;font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:900;margin-bottom:16px;line-height:1;
+  text-transform:uppercase;color:#fff;
+  text-shadow:3px 3px 0 #000,5px 5px 0 rgba(0,0,0,.6);
+}
+.contact-sub{color:rgba(255,255,255,.4);font-size:.85rem;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.contact-details{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px}
+.contact-detail{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 18px;
+  border:1px solid rgba(255,255,255,.06);background:rgba(10,10,14,.5);
+  font-size:.72rem;color:#fff;letter-spacing:.06em;text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;transition:all .3s;
+}
+a.contact-detail{cursor:pointer}
+.contact-detail:hover{border-color:rgba(192,38,211,.3);color:#3b82f6}
+.cd-icon{font-size:.9rem}
+
+.contact-form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-field input,.form-field textarea{
+  width:100%;padding:14px 16px;
+  background:rgba(10,10,14,.6);border:1px solid rgba(255,255,255,.06);
+  color:#fff;font-family:inherit;font-size:.82rem;
+  outline:none;letter-spacing:.02em;transition:border-color .3s;
+}
+.form-field input:focus,.form-field textarea:focus{border-color:#3b82f6}
+.form-field input::placeholder,.form-field textarea::placeholder{
+  color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase;font-size:.7rem;
+}
+.form-field textarea{resize:vertical;min-height:100px}
+.submit-btn{
+  margin-top:8px;padding:14px 32px;
+  background:linear-gradient(135deg,#3b82f6,#2563eb);
+  color:#fff;font-weight:800;font-size:.75rem;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  letter-spacing:.2em;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all .3s;
+}
+.submit-btn:hover{box-shadow:0 0 30px rgba(192,38,211,.4);transform:translateY(-2px)}
+
+.form-success{text-align:center;padding:32px 16px}
+.form-success h3{font-family:'Inter',sans-serif;font-size:1.3rem;color:#3b82f6;margin-bottom:10px;text-transform:uppercase}
+.form-success p{color:rgba(255,255,255,.45);font-size:.82rem;line-height:1.7}
+.form-success a{color:#3b82f6;text-decoration:underline}
+
+/* ===== FOOTER ===== */
+footer{padding:40px 0 24px;position:relative;z-index:5;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-links{display:flex;gap:20px}
+.footer-link{
+  color:rgba(255,255,255,.35);font-size:.72rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;transition:color .3s;
+}
+.footer-link:hover{color:#3b82f6}
+.footer-copy{color:rgba(255,255,255,.2);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-family:'Share Tech Mono',monospace}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-left,.hero-right{order:0}
+  .hero-left{display:none}
+  .astronaut-panel{width:220px;height:300px;margin:0 auto}
+  .alien-panel{width:220px;height:260px;margin:0 auto}
+  .about-grid,.project-card,.project-card:nth-child(even){grid-template-columns:1fr}
+  .project-card:nth-child(even) .project-visual{order:0}
+  .project-visual{border-right:none!important;border-left:none!important;border-bottom:1px solid rgba(255,255,255,.06)!important}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  section{padding:60px 20px}
+  .hero{padding:100px 20px 60px}
+  .navbar{padding:16px 20px}
+  .skills-grid{grid-template-columns:1fr}
+  .certs-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .project-content{padding:24px}
+  .contact-wrap{padding:32px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- Star layers -->
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 2C9.16 2 2 9.16 2 18s7.16 16 16 16 16-7.16 16-16S26.84 2 18 2z" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+      <path d="M18 6c-3 0-5.5 1.5-7 3.5C9.5 11.5 9 14 9.5 16.5c.8 3.5 3.5 6 7 6.5 2.5.4 5-.5 6.5-2.5 1.5-2 1.8-4.5.8-7C22.8 11 20.5 6 18 6z" stroke="#2563eb" stroke-width="1" fill="none"/>
+      <circle cx="16" cy="14" r="1.5" fill="#3b82f6"/>
+      <path d="M18 2v3M18 31v3M2 18h3M31 18h3" stroke="rgba(255,255,255,.15)" stroke-width=".5"/>
+    </svg>
+    <span class="nav-brand">M.ALI</span>
+  </div>
+  <div class="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Work</a>
+    <a href="#certs">Certs</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="#contact">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <!-- Left: Alien Panel -->
+    <div class="hero-left">
+      <div class="alien-panel">
+        <svg viewBox="0 0 280 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Crater planet -->
+          <circle cx="140" cy="260" r="70" fill="#111" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+          <circle cx="120" cy="245" r="12" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+          <circle cx="155" cy="270" r="8" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+          <circle cx="135" cy="280" r="6" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+          <ellipse cx="140" cy="260" rx="70" ry="15" fill="none" stroke="rgba(192,38,211,.15)" stroke-width="1" stroke-dasharray="4 3"/>
+          <!-- Alien figure -->
+          <ellipse cx="140" cy="130" rx="35" ry="45" fill="#111" stroke="rgba(255,255,255,.1)" stroke-width="1.5"/>
+          <ellipse cx="140" cy="130" rx="28" ry="38" fill="none" stroke="rgba(192,38,211,.12)" stroke-width="1"/>
+          <!-- Eyes -->
+          <ellipse cx="128" cy="120" rx="10" ry="14" fill="#0a0a0c" stroke="rgba(192,38,211,.3)" stroke-width="1"/>
+          <ellipse cx="152" cy="120" rx="10" ry="14" fill="#0a0a0c" stroke="rgba(192,38,211,.3)" stroke-width="1"/>
+          <ellipse cx="128" cy="118" rx="4" ry="6" fill="#3b82f6" opacity=".6"/>
+          <ellipse cx="152" cy="118" rx="4" ry="6" fill="#3b82f6" opacity=".6"/>
+          <!-- Mouth -->
+          <path d="M132 145 Q140 152 148 145" stroke="rgba(255,255,255,.15)" stroke-width="1" fill="none"/>
+          <!-- Body -->
+          <path d="M115 170 Q140 190 165 170 L160 230 Q140 240 120 230 Z" fill="#0d0d10" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+          <!-- Waving arm -->
+          <path d="M115 180 Q85 160 75 130 Q70 115 80 110" stroke="rgba(255,255,255,.1)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="78" cy="108" r="6" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1.5"/>
+          <!-- Other arm -->
+          <path d="M165 180 Q190 195 195 215" stroke="rgba(255,255,255,.1)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- Antenna -->
+          <line x1="130" y1="88" x2="120" y2="65" stroke="rgba(192,38,211,.2)" stroke-width="1"/>
+          <circle cx="120" cy="63" r="3" fill="rgba(192,38,211,.3)"/>
+          <line x1="150" y1="88" x2="160" y2="65" stroke="rgba(192,38,211,.2)" stroke-width="1"/>
+          <circle cx="160" cy="63" r="3" fill="rgba(192,38,211,.3)"/>
+        </svg>
+        <span class="alien-label">Sector 7-G</span>
+      </div>
+    </div>
+
+    <!-- Center: Title -->
+    <div class="hero-center">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        Available for Freelance
+      </div>
+      <h1 class="hero-title">
+        <span class="line">Mashhood</span>
+        <span class="line"><span class="accent">Ali.</span></span>
+      </h1>
+      <p class="hero-sub">
+        Software Engineering student at <strong>MAJU</strong> & aspiring full-stack developer.
+        I build modern web apps, explore AI tools, and love crafting things at the
+        intersection of code and creativity.
+      </p>
+      <div class="hero-author">Mashhood Ali · Karachi, Pakistan</div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">
+          <span>View My Work</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="btn btn-ghost" href="#contact">
+          <span>Get In Touch</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Astronaut Panel -->
+    <div class="hero-right">
+      <div class="ufo">
+        <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="40" cy="28" rx="30" ry="10" fill="#111" stroke="rgba(192,38,211,.25)" stroke-width="1"/>
+          <ellipse cx="40" cy="24" rx="16" ry="14" fill="#0d0d10" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+          <ellipse cx="40" cy="22" rx="10" ry="8" fill="rgba(192,38,211,.08)" stroke="rgba(192,38,211,.2)" stroke-width=".5"/>
+          <line x1="20" y1="36" x2="18" y2="46" stroke="rgba(192,38,211,.15)" stroke-width="1"/>
+          <line x1="40" y1="38" x2="40" y2="48" stroke="rgba(192,38,211,.15)" stroke-width="1"/>
+          <line x1="60" y1="36" x2="62" y2="46" stroke="rgba(192,38,211,.15)" stroke-width="1"/>
+          <circle cx="18" cy="47" r="2" fill="rgba(192,38,211,.3)"/>
+          <circle cx="40" cy="49" r="2" fill="rgba(192,38,211,.3)"/>
+          <circle cx="62" cy="47" r="2" fill="rgba(192,38,211,.3)"/>
+        </svg>
+      </div>
+      <div class="astronaut-panel">
+        <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Astronaut body -->
+          <g transform="translate(80,40) rotate(-12)">
+            <!-- Helmet -->
+            <circle cx="70" cy="50" r="38" fill="#111" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+            <circle cx="70" cy="50" r="30" fill="#080808" stroke="rgba(192,38,211,.15)" stroke-width="1"/>
+            <!-- Visor -->
+            <ellipse cx="70" cy="48" rx="22" ry="18" fill="rgba(192,38,211,.06)" stroke="rgba(192,38,211,.2)" stroke-width="1"/>
+            <ellipse cx="65" cy="44" rx="8" ry="6" fill="rgba(124,58,237,.08)"/>
+            <!-- Antenna -->
+            <line x1="70" y1="12" x2="70" y2="0" stroke="rgba(255,255,255,.1)" stroke-width="1.5"/>
+            <circle cx="70" cy="0" r="3" fill="rgba(192,38,211,.4)"/>
+            <!-- Torso -->
+            <rect x="40" y="85" width="60" height="70" rx="8" fill="#0d0d10" stroke="rgba(255,255,255,.08)" stroke-width="1.5"/>
+            <!-- Chest panel -->
+            <rect x="52" y="95" width="36" height="20" rx="3" fill="#0a0a0c" stroke="rgba(192,38,211,.12)" stroke-width=".5"/>
+            <circle cx="60" cy="105" r="3" fill="rgba(192,38,211,.25)"/>
+            <circle cx="70" cy="105" r="3" fill="rgba(124,58,237,.25)"/>
+            <circle cx="80" cy="105" r="3" fill="rgba(192,38,211,.15)"/>
+            <rect x="52" y="120" width="36" height="2" rx="1" fill="rgba(192,38,211,.1)"/>
+            <!-- Left arm -->
+            <path d="M40 95 Q10 110 5 150 Q3 165 15 170" stroke="rgba(255,255,255,.1)" stroke-width="2" fill="none"/>
+            <circle cx="15" cy="172" r="10" fill="#111" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <!-- Right arm -->
+            <path d="M100 95 Q130 100 145 130 Q150 145 140 155" stroke="rgba(255,255,255,.1)" stroke-width="2" fill="none"/>
+            <circle cx="138" cy="157" r="10" fill="#111" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <!-- Left leg -->
+            <path d="M55 155 Q50 200 45 230 Q43 245 55 250" stroke="rgba(255,255,255,.1)" stroke-width="2" fill="none"/>
+            <rect x="42" y="248" width="22" height="14" rx="4" fill="#111" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <!-- Right leg -->
+            <path d="M85 155 Q90 200 95 230 Q97 245 85 250" stroke="rgba(255,255,255,.1)" stroke-width="2" fill="none"/>
+            <rect x="78" y="248" width="22" height="14" rx="4" fill="#111" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <!-- Backpack -->
+            <rect x="35" y="88" width="8" height="60" rx="3" fill="#0a0a0c" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+            <rect x="97" y="88" width="8" height="60" rx="3" fill="#0a0a0c" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+          </g>
+          <!-- Saturn planet -->
+          <circle cx="230" cy="320" r="30" fill="#111" stroke="rgba(192,38,211,.2)" stroke-width="1.5"/>
+          <ellipse cx="230" cy="320" rx="48" ry="10" fill="none" stroke="rgba(192,38,211,.15)" stroke-width="1" transform="rotate(-20 230 320)"/>
+          <ellipse cx="230" cy="320" rx="52" ry="12" fill="none" stroke="rgba(124,58,237,.1)" stroke-width=".5" transform="rotate(-20 230 320)"/>
+          <!-- Telescope base -->
+          <rect x="200" cy="370" y="370" width="60" height="8" rx="2" fill="#111" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+          <line x1="220" y1="370" x2="230" y2="340" stroke="rgba(255,255,255,.08)" stroke-width="1.5"/>
+          <line x1="240" y1="370" x2="230" y2="340" stroke="rgba(255,255,255,.08)" stroke-width="1.5"/>
+          <circle cx="230" cy="336" r="6" fill="#0d0d10" stroke="rgba(192,38,211,.15)" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">/01 — About</div>
+      <h2 class="section-title">A bit about me.</h2>
+      <p class="section-sub">Software Engineering student, builder, and curious tinkerer.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-initials">MA</div>
+      </div>
+      <div class="about-content">
+        <p>
+          I'm a Software Engineering student at <strong>Muhammad Ali Jinnah University (MAJU)</strong>,
+          Karachi, currently in my first semester. I love building modern web applications,
+          exploring AI tools, and tinkering with local LLMs through Ollama.
+        </p>
+        <p>
+          Outside of code, I'm into gaming (Watch Dogs, GTA 5), photo editing, PC hardware,
+          and the open-source world. I enjoy taking on internships that push me to learn
+          fast and ship real things.
+        </p>
+        <div class="about-info">
+          <div class="info-item">
+            <div class="info-label">Name</div>
+            <div class="info-value">Mashhood Ali</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Location</div>
+            <div class="info-value">Karachi, Pakistan</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">University</div>
+            <div class="info-value">MAJU · BSSE</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Status</div>
+            <div class="info-value" style="color:#3b82f6">&#9679; Open to Opportunities</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">/02 — Skills</div>
+      <h2 class="section-title">My toolbox.</h2>
+      <p class="section-sub">Technologies and tools I use to bring products to life.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card" style="--p:95%">
+        <div class="skill-icon">&#9883;&#65039;</div>
+        <div class="skill-name">Frontend</div>
+        <div class="skill-desc">HTML5, CSS3, React.js, Next.js, TypeScript, Tailwind CSS</div>
+        <div class="skill-bar"></div>
+      </div>
+      <div class="skill-card" style="--p:90%">
+        <div class="skill-icon">&#129513;</div>
+        <div class="skill-name">Backend</div>
+        <div class="skill-desc">Node.js, Express.js, Django, FastAPI, REST APIs</div>
+        <div class="skill-bar"></div>
+      </div>
+      <div class="skill-card" style="--p:88%">
+        <div class="skill-icon">&#128190;</div>
+        <div class="skill-name">Databases</div>
+        <div class="skill-desc">MongoDB, PostgreSQL, MySQL</div>
+        <div class="skill-bar"></div>
+      </div>
+      <div class="skill-card" style="--p:92%">
+        <div class="skill-icon">&#129302;</div>
+        <div class="skill-name">AI &amp; LLMs</div>
+        <div class="skill-desc">Prompt Engineering, LLM Integration, Ollama, Claude API</div>
+        <div class="skill-bar"></div>
+      </div>
+      <div class="skill-card" style="--p:85%">
+        <div class="skill-icon">&#9881;&#65039;</div>
+        <div class="skill-name">Languages</div>
+        <div class="skill-desc">C, C++, Python, JavaScript, TypeScript, Rust</div>
+        <div class="skill-bar"></div>
+      </div>
+      <div class="skill-card" style="--p:80%">
+        <div class="skill-icon">&#128640;</div>
+        <div class="skill-name">DevOps</div>
+        <div class="skill-desc">Git/GitHub, Docker, Linux</div>
+        <div class="skill-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">/03 — Education</div>
+      <h2 class="section-title">Where I study.</h2>
+      <p class="section-sub">My academic background and current coursework.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <div class="t-date">2026 — Present</div>
+          <h3 class="t-title">Bachelor of Software Engineering (BSSE)</h3>
+          <div class="t-org">Muhammad Ali Jinnah University (MAJU), Karachi</div>
+          <p class="t-desc">Currently in Semester 1. Building a strong foundation in computer science, software engineering principles, and modern development practices.</p>
+          <div class="t-tags">
+            <span class="tag">CS1410 · Computer Programming</span>
+            <span class="tag">CS1260 · Applications of ICT</span>
+            <span class="tag">Islamic Studies</span>
+            <span class="tag">English</span>
+          </div>
+          <div class="t-tags" style="margin-top:8px">
+            <span class="tag">Reg No: SP2026-BSSE-0021</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">/04 — Experience</div>
+      <h2 class="section-title">Internships &amp; roles.</h2>
+      <p class="section-sub">Hands-on industry experience alongside my studies.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <div class="t-date">2026 · Internship</div>
+          <h3 class="t-title">Software Engineering Intern</h3>
+          <div class="t-org">Decode Labs</div>
+          <p class="t-desc">Worked on real-world software engineering tasks, contributing to development workflows and shipping practical solutions as part of the engineering team.</p>
+          <div class="t-tags">
+            <span class="tag">Software Engineering</span>
+            <span class="tag">Team Workflows</span>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <div class="t-date">2026 · Internship</div>
+          <h3 class="t-title">Software Development Intern</h3>
+          <div class="t-org">CodeAlpha</div>
+          <p class="t-desc">Built and shipped software development projects, sharpening practical coding skills and learning industry-standard development practices.</p>
+          <div class="t-tags">
+            <span class="tag">Software Development</span>
+            <span class="tag">Project Delivery</span>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <div class="t-date">2026 · Contract</div>
+          <h3 class="t-title">AI Trainer / Writer</h3>
+          <div class="t-org">Mindrift</div>
+          <p class="t-desc">AI training and writing profile on the Mindrift platform — working with prompt engineering, model evaluation, and quality feedback for LLMs.</p>
+          <div class="t-tags">
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">LLM Evaluation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">/05 — Certifications</div>
+      <h2 class="section-title">Credentials.</h2>
+      <p class="section-sub">Courses and certifications completed along the way.</p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">&#127891;</div>
+        <div class="cert-body">
+          <h3>Introduction to Modern AI</h3>
+          <div class="cert-org">Cisco Networking Academy</div>
+          <div class="cert-date">April 2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">&#128188;</div>
+        <div class="cert-body">
+          <h3>Software Engineering Internship</h3>
+          <div class="cert-org">Decode Labs</div>
+          <div class="cert-date">2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">&#128187;</div>
+        <div class="cert-body">
+          <h3>Software Development Internship</h3>
+          <div class="cert-org">CodeAlpha</div>
+          <div class="cert-date">2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">&#129302;</div>
+        <div class="cert-body">
+          <h3>AI Trainer / Writer Profile</h3>
+          <div class="cert-org">Mindrift</div>
+          <div class="cert-date">2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">/06 — Work</div>
+      <h2 class="section-title">Selected projects.</h2>
+      <p class="section-sub">Things I've built, learned from, and shipped.</p>
+    </div>
+    <div class="projects-list">
+      <div class="project-card">
+        <div class="project-visual">
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#0a0a0c"/>
+            <rect x="20" y="20" width="360" height="260" rx="4" fill="#111" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <rect x="35" y="35" width="160" height="10" rx="2" fill="rgba(59,130,246,.3)"/>
+            <rect x="35" y="55" width="120" height="6" rx="1" fill="rgba(255,255,255,.08)"/>
+            <rect x="35" y="70" width="140" height="6" rx="1" fill="rgba(255,255,255,.05)"/>
+            <rect x="35" y="100" width="330" height="140" rx="4" fill="#0d0d10" stroke="rgba(59,130,246,.15)" stroke-width="1"/>
+            <path d="M80 210 L120 160 L160 180 L220 120 L280 140 L340 100" stroke="#3b82f6" stroke-width="2" fill="none"/>
+            <circle cx="80" cy="210" r="4" fill="#3b82f6"/>
+            <circle cx="120" cy="160" r="4" fill="#3b82f6"/>
+            <circle cx="160" cy="180" r="4" fill="#3b82f6"/>
+            <circle cx="220" cy="120" r="4" fill="#3b82f6"/>
+            <circle cx="280" cy="140" r="4" fill="#3b82f6"/>
+            <circle cx="340" cy="100" r="4" fill="#3b82f6"/>
+            <text x="200" y="280" text-anchor="middle" fill="rgba(255,255,255,.15)" font-family="Inter,sans-serif" font-size="10" letter-spacing="3">MAS ELITE DRIVE</text>
+          </svg>
+        </div>
+        <div class="project-content">
+          <div class="project-num">/ Project 01</div>
+          <h3 class="project-title">MAS Elite Drive</h3>
+          <p class="project-desc">A luxury automotive website concept — premium UI for showcasing high-end vehicles, with smooth interactions and a refined dark aesthetic.</p>
+          <div class="project-tags">
+            <span class="tag">Web</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">Automotive</span>
+          </div>
+          <a class="project-link" href="https://github.com/MASHHOOD2019" target="_blank" rel="noopener">View on GitHub <span>&rarr;</span></a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-visual">
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#0a0a0c"/>
+            <rect x="50" y="30" width="300" height="180" rx="4" fill="#111" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <rect x="70" y="50" width="100" height="8" rx="2" fill="rgba(59,130,246,.4)"/>
+            <rect x="70" y="70" width="260" height="4" rx="1" fill="rgba(255,255,255,.06)"/>
+            <rect x="70" y="82" width="200" height="4" rx="1" fill="rgba(255,255,255,.04)"/>
+            <rect x="70" y="110" width="80" height="80" rx="4" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.2)" stroke-width="1"/>
+            <rect x="170" y="110" width="80" height="80" rx="4" fill="rgba(59,130,246,.08)" stroke="rgba(59,130,246,.15)" stroke-width="1"/>
+            <rect x="270" y="110" width="60" height="80" rx="4" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.1)" stroke-width="1"/>
+            <rect x="75" y="155" width="70" height="30" rx="2" fill="rgba(59,130,246,.15)"/>
+            <rect x="175" y="165" width="70" height="20" rx="2" fill="rgba(59,130,246,.12)"/>
+            <path d="M100 240 L140 220 L180 235 L230 200 L280 215 L320 190" stroke="#3b82f6" stroke-width="2" fill="none"/>
+            <rect x="120" y="255" width="160" height="20" rx="2" fill="rgba(59,130,246,.2)"/>
+            <text x="200" y="269" text-anchor="middle" fill="rgba(255,255,255,.3)" font-family="Inter,sans-serif" font-size="8" letter-spacing="2">AI PRESENTATION</text>
+          </svg>
+        </div>
+        <div class="project-content">
+          <div class="project-num">/ Project 02</div>
+          <h3 class="project-title">AI PowerPoint Presentation Suite</h3>
+          <p class="project-desc">A presentation-generation tool built with pptxgenjs — automate slide creation and turn content into polished decks quickly.</p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">pptxgenjs</span>
+            <span class="tag">Automation</span>
+          </div>
+          <a class="project-link" href="https://github.com/MASHHOOD2019" target="_blank" rel="noopener">View on GitHub <span>&rarr;</span></a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-visual">
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#0a0a0c"/>
+            <rect x="80" y="30" width="240" height="240" rx="4" fill="#111" stroke="rgba(59,130,246,.2)" stroke-width="1"/>
+            <line x1="80" y1="70" x2="320" y2="70" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="80" y1="110" x2="320" y2="110" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="80" y1="150" x2="320" y2="150" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="80" y1="190" x2="320" y2="190" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="80" y1="230" x2="320" y2="230" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="120" y1="30" x2="120" y2="270" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="160" y1="30" x2="160" y2="270" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="200" y1="30" x2="200" y2="270" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="240" y1="30" x2="240" y2="270" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="280" y1="30" x2="280" y2="270" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <rect x="100" y="110" width="18" height="18" fill="#3b82f6"/>
+            <rect x="118" y="110" width="18" height="18" fill="#3b82f6" opacity=".8"/>
+            <rect x="136" y="110" width="18" height="18" fill="#3b82f6" opacity=".6"/>
+            <rect x="154" y="110" width="18" height="18" fill="#3b82f6" opacity=".5"/>
+            <rect x="154" y="128" width="18" height="18" fill="#3b82f6" opacity=".4"/>
+            <rect x="154" y="146" width="18" height="18" fill="#3b82f6" opacity=".3"/>
+            <rect x="240" y="190" width="18" height="18" rx="2" fill="rgba(59,130,246,.3)" stroke="#3b82f6" stroke-width="1"/>
+            <text x="200" y="292" text-anchor="middle" fill="rgba(255,255,255,.12)" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="2">SNAKE GAME C++</text>
+          </svg>
+        </div>
+        <div class="project-content">
+          <div class="project-num">/ Project 03</div>
+          <h3 class="project-title">Snake Game (C++)</h3>
+          <p class="project-desc">A classic Snake Game built in C++ as part of CS1410 coursework — console-based gameplay with smooth controls and growing difficulty.</p>
+          <div class="project-tags">
+            <span class="tag">C++</span>
+            <span class="tag">Game Logic</span>
+            <span class="tag">CS1410</span>
+          </div>
+          <a class="project-link" href="https://github.com/MASHHOOD2019" target="_blank" rel="noopener">View on GitHub <span>&rarr;</span></a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-visual">
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#0a0a0c"/>
+            <rect x="60" y="25" width="280" height="250" rx="6" fill="#111" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <circle cx="200" cy="80" r="30" fill="#0d0d10" stroke="rgba(59,130,246,.2)" stroke-width="1.5"/>
+            <text x="200" y="85" text-anchor="middle" fill="#3b82f6" font-family="Inter,sans-serif" font-weight="800" font-size="18">MA</text>
+            <rect x="110" y="125" width="180" height="6" rx="2" fill="rgba(255,255,255,.1)"/>
+            <rect x="130" y="140" width="140" height="4" rx="1" fill="rgba(255,255,255,.05)"/>
+            <rect x="80" y="165" width="60" height="20" rx="3" fill="rgba(59,130,246,.15)" stroke="rgba(59,130,246,.25)" stroke-width="1"/>
+            <text x="110" y="179" text-anchor="middle" fill="#3b82f6" font-family="Inter,sans-serif" font-size="8">README</text>
+            <rect x="150" y="165" width="60" height="20" rx="3" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <text x="180" y="179" text-anchor="middle" fill="rgba(255,255,255,.3)" font-family="Inter,sans-serif" font-size="8">Stats</text>
+            <rect x="220" y="165" width="60" height="20" rx="3" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <text x="250" y="179" text-anchor="middle" fill="rgba(255,255,255,.3)" font-family="Inter,sans-serif" font-size="8">Repos</text>
+            <rect x="90" y="200" width="220" height="50" rx="4" fill="#0d0d10" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+            <rect x="100" y="210" width="80" height="4" rx="1" fill="rgba(59,130,246,.3)"/>
+            <rect x="100" y="220" width="120" height="3" rx="1" fill="rgba(255,255,255,.06)"/>
+            <rect x="100" y="228" width="100" height="3" rx="1" fill="rgba(255,255,255,.04)"/>
+            <rect x="100" y="236" width="140" height="3" rx="1" fill="rgba(255,255,255,.03)"/>
+          </svg>
+        </div>
+        <div class="project-content">
+          <div class="project-num">/ Project 04</div>
+          <h3 class="project-title">GitHub Profile README</h3>
+          <p class="project-desc">A polished GitHub profile README showcasing my skills, projects, and stats — built as a personal branding touchpoint for the open-source community.</p>
+          <div class="project-tags">
+            <span class="tag">Markdown</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Branding</span>
+          </div>
+          <a class="project-link" href="https://github.com/MASHHOOD2019" target="_blank" rel="noopener">View on GitHub <span>&rarr;</span></a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-visual">
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#0a0a0c"/>
+            <rect x="70" y="20" width="200" height="260" rx="4" fill="#111" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <rect x="230" y="40" width="110" height="240" rx="4" fill="#111" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+            <rect x="85" y="35" width="100" height="8" rx="2" fill="rgba(59,130,246,.35)"/>
+            <rect x="85" y="55" width="170" height="3" rx="1" fill="rgba(255,255,255,.08)"/>
+            <rect x="85" y="65" width="150" height="3" rx="1" fill="rgba(255,255,255,.05)"/>
+            <rect x="85" y="75" width="160" height="3" rx="1" fill="rgba(255,255,255,.04)"/>
+            <rect x="85" y="100" width="170" height="60" rx="3" fill="#0d0d10" stroke="rgba(59,130,246,.12)" stroke-width="1"/>
+            <rect x="95" y="110" width="60" height="4" rx="1" fill="rgba(59,130,246,.25)"/>
+            <rect x="95" y="120" width="100" height="3" rx="1" fill="rgba(255,255,255,.06)"/>
+            <rect x="95" y="128" width="80" height="3" rx="1" fill="rgba(255,255,255,.04)"/>
+            <rect x="95" y="140" width="40" height="12" rx="2" fill="rgba(59,130,246,.2)"/>
+            <rect x="85" y="175" width="170" height="40" rx="3" fill="#0d0d10" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+            <rect x="95" y="185" width="50" height="4" rx="1" fill="rgba(59,130,246,.2)"/>
+            <rect x="95" y="195" width="80" height="3" rx="1" fill="rgba(255,255,255,.05)"/>
+            <rect x="245" y="55" width="80" height="6" rx="2" fill="rgba(59,130,246,.25)"/>
+            <rect x="245" y="70" width="90" height="3" rx="1" fill="rgba(255,255,255,.06)"/>
+            <rect x="245" y="82" width="70" height="3" rx="1" fill="rgba(255,255,255,.04)"/>
+            <rect x="245" y="100" width="80" height="80" rx="3" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.12)" stroke-width="1"/>
+            <rect x="245" y="200" width="80" height="60" rx="3" fill="rgba(59,130,246,.04)" stroke="rgba(59,130,246,.08)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="project-content">
+          <div class="project-num">/ Project 05</div>
+          <h3 class="project-title">CS1260 Assignment Series</h3>
+          <p class="project-desc">A series of assignments for the Applications of ICT course (CS1260) — covering digital tools, productivity workflows, and tech fundamentals.</p>
+          <div class="project-tags">
+            <span class="tag">ICT</span>
+            <span class="tag">CS1260</span>
+            <span class="tag">Coursework</span>
+          </div>
+          <a class="project-link" href="https://github.com/MASHHOOD2019" target="_blank" rel="noopener">View on GitHub <span>&rarr;</span></a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-visual">
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#0a0a0c"/>
+            <rect x="30" y="15" width="340" height="270" rx="6" fill="#111" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <rect x="30" y="15" width="340" height="28" rx="6" fill="#0d0d10" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+            <circle cx="48" cy="29" r="4" fill="rgba(239,68,68,.6)"/>
+            <circle cx="62" cy="29" r="4" fill="rgba(234,179,8,.6)"/>
+            <circle cx="76" cy="29" r="4" fill="rgba(34,197,94,.6)"/>
+            <text x="200" y="33" text-anchor="middle" fill="rgba(255,255,255,.15)" font-family="JetBrains Mono,monospace" font-size="8">index.html</text>
+            <rect x="45" y="55" width="60" height="6" rx="1" fill="rgba(59,130,246,.4)"/>
+            <rect x="45" y="68" width="200" height="3" rx="1" fill="rgba(255,255,255,.06)"/>
+            <rect x="45" y="78" width="160" height="3" rx="1" fill="rgba(255,255,255,.04)"/>
+            <rect x="45" y="95" width="310" height="80" rx="4" fill="#0d0d10" stroke="rgba(59,130,246,.1)" stroke-width="1"/>
+            <text x="200" y="125" text-anchor="middle" fill="rgba(255,255,255,.15)" font-family="Inter,sans-serif" font-weight="800" font-size="20" letter-spacing="3">MASHHOOD ALI</text>
+            <text x="200" y="145" text-anchor="middle" fill="rgba(59,130,246,.3)" font-family="Inter,sans-serif" font-size="8" letter-spacing="2">SOFTWARE ENGINEER</text>
+            <rect x="130" y="160" width="60" height="10" rx="2" fill="rgba(59,130,246,.2)"/>
+            <rect x="210" y="160" width="60" height="10" rx="2" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+            <rect x="45" y="190" width="150" height="3" rx="1" fill="rgba(255,255,255,.06)"/>
+            <rect x="45" y="200" width="120" height="3" rx="1" fill="rgba(255,255,255,.04)"/>
+            <rect x="45" y="210" width="140" height="3" rx="1" fill="rgba(255,255,255,.03)"/>
+            <rect x="45" y="230" width="310" height="40" rx="3" fill="rgba(59,130,246,.04)" stroke="rgba(59,130,246,.08)" stroke-width="1"/>
+            <rect x="55" y="240" width="80" height="6" rx="2" fill="rgba(59,130,246,.15)"/>
+            <rect x="55" y="252" width="100" height="3" rx="1" fill="rgba(255,255,255,.04)"/>
+          </svg>
+        </div>
+        <div class="project-content">
+          <div class="project-num">/ Project 06</div>
+          <h3 class="project-title">Personal Portfolio Website</h3>
+          <p class="project-desc">This very site — a brutalist space-themed portfolio built with pure HTML &amp; CSS.</p>
+          <div class="project-tags">
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">Portfolio</span>
+            <span class="tag">Design</span>
+          </div>
+          <a class="project-link" href="https://github.com/MASHHOOD2019" target="_blank" rel="noopener">View on GitHub <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-bg"></div>
+      <div class="contact-inner">
+        <div class="section-num">/07 — Contact</div>
+        <h2 class="contact-title">Let's Work<br/>Together.</h2>
+        <p class="contact-sub">Have a project, internship, or just want to say hi? Drop me a message — I usually reply within a day.</p>
+        <div class="contact-details">
+          <a class="contact-detail" href="mailto:mashhoodakisahito95@gmail.com">
+            <span class="cd-icon">&#9993;</span>
+            <span>mashhoodakisahito95@gmail.com</span>
+          </a>
+          <div class="contact-detail">
+            <span class="cd-icon">&#128205;</span>
+            <span>Karachi, Pakistan</span>
+          </div>
+        </div>
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+          <input type="hidden" name="access_key" value="d50e0d11-a6cc-4fb5-abbc-4025715ec859">
+          <input type="hidden" name="subject" value="New message from portfolio">
+          <input type="hidden" name="from_name" value="Portfolio Contact Form">
+          <input type="checkbox" name="botcheck" style="display:none">
+          <div class="form-row">
+            <div class="form-field"><input type="text" name="name" placeholder="Your Name" required></div>
+            <div class="form-field"><input type="email" name="email" placeholder="Your Email" required></div>
+          </div>
+          <div class="form-field"><input type="text" name="subject" placeholder="Subject"></div>
+          <div class="form-field"><textarea name="message" placeholder="Tell me about your project..." required></textarea></div>
+          <button class="submit-btn" type="submit" id="submitBtn">Send Message <span>&rarr;</span></button>
+        </form>
+        <script>
+        document.getElementById('contactForm').addEventListener('submit',function(e){
+          e.preventDefault();
+          var btn=document.getElementById('submitBtn');
+          var form=document.getElementById('contactForm');
+          btn.innerHTML='SENDING...';
+          btn.disabled=true;
+          fetch('https://api.web3forms.com/submit',{
+            method:'POST',body:new FormData(form)
+          }).then(function(r){return r.json()}).then(function(d){
+            if(d.success){
+              form.innerHTML='<div class="form-success"><h3>Message Sent!</h3><p>Thanks for reaching out. I\'ll get back to you soon.<br><a href="mailto:mashhoodakisahito95@gmail.com">mashhoodakisahito95@gmail.com</a></p></div>';
+            }else{
+              btn.innerHTML='Send Message <span>&rarr;</span>';
+              btn.disabled=false;
+              alert('Something went wrong. Please try again.');
+            }
+          }).catch(function(){
+            btn.innerHTML='Send Message <span>&rarr;</span>';
+            btn.disabled=false;
+            alert('Network error. Please try again.');
+          });
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-copy">&copy; 2026 Mashhood Ali. Crafted with code &amp; curiosity.</div>
+      <div class="footer-links">
+        <a class="footer-link" href="https://github.com/MASHHOOD2019" target="_blank" rel="noopener">GitHub</a>
+        <a class="footer-link" href="https://linkedin.com/in/mashhood-ali-514862296" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="footer-link" href="mailto:mashhoodakisahito95@gmail.com">Email</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Active nav link */
+var sections=document.querySelectorAll('section');
+var navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',function(){
+  var cur='';
+  sections.forEach(function(s){if(window.scrollY>=s.offsetTop-200)cur=s.id});
+  navLinks.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+cur)});
+});
+</script>
+</body>
+</html>
